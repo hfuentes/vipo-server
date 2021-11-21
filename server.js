@@ -4,11 +4,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 const db = require('./app/models');
 
-var corsOptions = {
-    origin: 'http://localhost:8081'
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
