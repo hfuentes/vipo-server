@@ -26,7 +26,7 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-    Noticia.find(req).then(data => {
+    Noticia.find(req, { image: 0 }).then(data => {
         res.send(data);
     }).catch(err => {
         res.status(500).send({
