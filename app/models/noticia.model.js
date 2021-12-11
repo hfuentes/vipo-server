@@ -3,10 +3,7 @@ module.exports = mongoose => {
         {
             titulo: String,
             bajada: String,
-            imagen: {
-                data: Buffer,
-                contentType: String
-            },
+            imagen: String,
             cuerpo: String
         },
         { timestamps: true }

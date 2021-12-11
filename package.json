@@ -1,11 +1,11 @@
 {
   "name": "vipo-usach-serve",
   "version": "1.0.0",
-  "description": "",
+  "description": "Server para APP VIPO Usach",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "local": "nodemon server.js"
+    "local": "NODE_DEBUG=http nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
+    "body-parser": "^1.19.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^6.0.13"

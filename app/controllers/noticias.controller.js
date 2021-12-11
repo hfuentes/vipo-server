@@ -6,13 +6,13 @@ exports.create = (req, res) => {
         res.status(400).send({ message: 'Título no puede estar vacío.' });
         return;
     }
+
+    console.log(req.body.imagen);
+
     const noticia = new Noticia({
         titulo: req.body.titulo,
         bajada: req.body.bajada,
-        imagen: {
-            data: req.body.imagen.data,
-            contentType: req.body.imagen.contentType
-        },
+        imagen: req.body.imagen,
         cuerpo: req.body.cuerpo
     });
 
@@ -26,7 +26,7 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-    Noticia.find(req, { image: 0 }).then(data => {
+    Noticia.find(req, { imagen: 0 }).then(data => {
         res.send(data);
     }).catch(err => {
         res.status(500).send({
@@ -58,6 +58,10 @@ exports.update = (req, res) => {
         });
     }
     const id = req.params.id;
+    const imagen = req.params.imagen;
+    if (imagen === undefined || imagen === null || imagen === '') {
+        delete req.params.imagen;
+    }
     Noticia.findByIdAndUpdate(id, req.body, { useFindAndModify: false }).then(data => {
         if (!data) {
             res.status(404).send({
