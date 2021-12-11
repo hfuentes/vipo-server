@@ -35,6 +35,16 @@ exports.findAll = (req, res) => {
     });
 };
 
+exports.publicFindAll = (req, res) => {
+    Noticia.find(req).then(data => {
+        res.send(data);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || 'Ha ocurrido un error.'
+        });
+    });
+};
+
 exports.findOne = (req, res) => {
     const id = req.params.id;
     if (!id) {
