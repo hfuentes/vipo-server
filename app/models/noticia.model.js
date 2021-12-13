@@ -4,7 +4,8 @@ module.exports = mongoose => {
             titulo: String,
             bajada: String,
             imagen: String,
-            cuerpo: String
+            cuerpo: String,
+            publicado: Boolean
         },
         { timestamps: true }
     );

@@ -13,7 +13,8 @@ exports.create = (req, res) => {
         titulo: req.body.titulo,
         bajada: req.body.bajada,
         imagen: req.body.imagen,
-        cuerpo: req.body.cuerpo
+        cuerpo: req.body.cuerpo,
+        publicado: req.body.publicado ? true : false
     });
 
     noticia.save(noticia).then(data => {
@@ -26,23 +27,27 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-    Noticia.find(req, { imagen: 0 }).then(data => {
-        res.send(data);
-    }).catch(err => {
-        res.status(500).send({
-            message: err.message || 'Ha ocurrido un error.'
+    Noticia.find(req, { imagen: 0 })
+        .sort({ updatedAt: -1, publicado: 1 })
+        .then(data => {
+            res.send(data);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || 'Ha ocurrido un error.'
+            });
         });
-    });
 };
 
-exports.publicFindAll = (req, res) => {
-    Noticia.find(req).then(data => {
-        res.send(data);
-    }).catch(err => {
-        res.status(500).send({
-            message: err.message || 'Ha ocurrido un error.'
+exports.publicFindAll = (_, res) => {
+    Noticia.find({ publicado: true })
+        .sort({ updatedAt: -1 })
+        .then(data => {
+            res.send(data);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || 'Ha ocurrido un error.'
+            });
         });
-    });
 };
 
 exports.findOne = (req, res) => {
