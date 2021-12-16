@@ -7,8 +7,6 @@ exports.create = (req, res) => {
         return;
     }
 
-    console.log(req.body.imagen);
-
     const noticia = new Noticia({
         titulo: req.body.titulo,
         bajada: req.body.bajada,
@@ -38,6 +36,19 @@ exports.findAll = (req, res) => {
         });
 };
 
+exports.findAllActive = (_, res) => {
+    Noticia.find({ publicado: true }, { imagen: 0 })
+        .sort({ updatedAt: -1, publicado: 1 })
+        .then(data => {
+            res.send(data);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || 'Ha ocurrido un error.'
+            });
+        });
+};
+
+// metodo publico
 exports.publicFindAll = (_, res) => {
     Noticia.find({ publicado: true })
         .sort({ updatedAt: -1 })

@@ -3,7 +3,8 @@ module.exports = app => {
     var router = require('express').Router();
     router.post('/', ctr.create);
     router.get('/', ctr.findAll);
-    router.get('/all', ctr.publicFindAll);
+    router.get('/all', ctr.publicFindAll); // metodo publico
+    router.get('/active', ctr.findAllActive);
     router.get('/:id', ctr.findOne);
     router.put('/:id', ctr.update);
     router.delete('/:id', ctr.delete);

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "local": "NODE_DEBUG=http nodemon server.js"
+    "local": "NODE_DEBUG='express:router' nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "body-parser": "^1.19.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-routemap": "^1.6.0",
     "mongoose": "^6.0.13"
   }
 }
