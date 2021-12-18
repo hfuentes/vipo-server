@@ -17,18 +17,23 @@ exports.update = (req, res) => {
 
 };
 
-exports.get = (req, res) => {
+exports.get = (_, res) => {
     return Admision.find().then(data => {
         if (data && data.length > 0) {
             const first = data.shift();
             data.forEach(item => {
                 Admision.findByIdAndRemove(item.id).catch(err => {
-                    console.error(`No se puede Admision eliminar id=${item.id}.`);
+                    console.error(`No se puede eliminar documento tipo 'Admision' id=${item.id}.`);
                 });
             });
             return new Promise((resolve, _) => resolve(first));
         } else {
-            const admision = new Admision({ fechas: '', requisitos: '', becas: '', postula: '' });
+            const admision = new Admision({
+                fechas: '',
+                requisitos: '',
+                becas: '',
+                postula: ''
+            });
             return admision.save(admision);
         }
     }).then(data => {

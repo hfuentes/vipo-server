@@ -9,5 +9,6 @@ db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.noticia = require('./noticia.model.js')(mongoose);
 db.admision = require('./admision.model.js')(mongoose);
+db.inicial = require('./inicial.model.js')(mongoose);
 
 module.exports = db;
