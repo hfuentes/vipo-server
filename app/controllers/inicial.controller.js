@@ -57,3 +57,53 @@ exports.get = (_, res) => {
         });
     });
 };
+
+exports.publicGet = (_, res) => {
+    return Inicial
+        .find()
+        .sort({ createdAt: -1 })
+        .populate({ path: 'noticia1', select: 'titulo imagen' })
+        .populate({ path: 'noticia2', select: 'titulo imagen' })
+        .populate({ path: 'noticia3', select: 'titulo imagen' })
+        .limit(1)
+        .then(data => {
+            if (data && data.length > 0) {
+                let first = JSON.parse(JSON.stringify(data.shift()));
+                first.noticia1.id = first.noticia1._id;
+                delete first.noticia1._id;
+                first.noticia2.id = first.noticia2._id;
+                delete first.noticia2._id;
+                first.noticia3.id = first.noticia3._id;
+                delete first.noticia3._id;
+                return res.send(first);
+            }
+            return res.status(500).send({
+                message: 'No se han encontrado registros asociados a la consulta.'
+            });
+        }).catch(err => {
+            return res.status(500).send({
+                message: err.message || 'Ha ocurrido un error.'
+            });
+        });
+};
+
+exports.publicFooterGet = (_, res) => {
+    return Inicial
+        .find()
+        .select('facebook twitter instagram')
+        .sort({ createdAt: -1 })
+        .limit(1)
+        .then(data => {
+            if (data && data.length > 0) {
+                const first = data.shift();
+                return res.send(first);
+            }
+            return res.status(500).send({
+                message: 'No se han encontrado registros asociados a la consulta.'
+            });
+        }).catch(err => {
+            return res.status(500).send({
+                message: err.message || 'Ha ocurrido un error.'
+            });
+        });
+};

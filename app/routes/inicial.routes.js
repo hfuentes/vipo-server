@@ -3,5 +3,7 @@ module.exports = app => {
     var router = require('express').Router();
     router.put('/:id', ctr.update);
     router.get('/', ctr.get);
+    router.get('/public', ctr.publicGet);
+    router.get('/footer/public', ctr.publicFooterGet);
     app.use('/api/inicial', router);
 };
