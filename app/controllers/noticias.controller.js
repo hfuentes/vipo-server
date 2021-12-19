@@ -48,7 +48,6 @@ exports.findAllActive = (_, res) => {
         });
 };
 
-// metodo publico
 exports.publicFindAll = (_, res) => {
     Noticia.find({ publicado: true })
         .sort({ updatedAt: -1 })
@@ -84,10 +83,6 @@ exports.update = (req, res) => {
         });
     }
     const id = req.params.id;
-    const imagen = req.params.imagen;
-    if (imagen === undefined || imagen === null || imagen === '') {
-        delete req.params.imagen;
-    }
     Noticia.findByIdAndUpdate(id, req.body, { useFindAndModify: false }).then(data => {
         if (!data) {
             res.status(404).send({

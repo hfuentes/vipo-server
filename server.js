@@ -21,6 +21,7 @@ app.get('/api/status', (_, res) => res.json({ server: 'ONLINE', database: status
 require('./app/routes/noticias.routes')(app);
 require('./app/routes/admision.routes')(app);
 require('./app/routes/inicial.routes')(app);
+require('./app/routes/academicos.routes')(app);
 
 // run
 app.listen(PORT, () => {
