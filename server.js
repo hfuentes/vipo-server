@@ -22,6 +22,7 @@ require('./app/routes/noticias.routes')(app);
 require('./app/routes/admision.routes')(app);
 require('./app/routes/inicial.routes')(app);
 require('./app/routes/academicos.routes')(app);
+require('./app/routes/estudiantes.routes')(app);
 
 // run
 app.listen(PORT, () => {
