@@ -15,9 +15,13 @@ app.use(express.urlencoded({ extended: true }));
 // logger
 require('./app/services/logger.service')(app);
 
+// auth
+require('./app/services/auth.service')(app);
+
 // rutas
 let status = 'OFFLINE';
 app.get('/api/status', (_, res) => res.json({ server: 'ONLINE', database: status }));
+require('./app/routes/usuario.routes')(app);
 require('./app/routes/noticias.routes')(app);
 require('./app/routes/admision.routes')(app);
 require('./app/routes/inicial.routes')(app);
