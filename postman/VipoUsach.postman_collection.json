@@ -1,0 +1,1609 @@
+{
+	"info": {
+		"_postman_id": "fb8f0577-96e2-4959-a8fb-6fbaa851822c",
+		"name": "VipoUsach",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Noticias",
+			"item": [
+				{
+					"name": "noticias/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"noticiaId\", jsonData.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Noticia de Prueba AAA\",\n    \"bajada\": \"\",\n    \"imagen\": \"\",\n    \"cuerpo\": \"\",\n    \"publicado\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/noticias/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"noticias",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "noticias/:id/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Noticia de Prueba 2 EDITADA\",\n    \"bajada\": \"\",\n    \"imagen\": {\n        \"data\": \"\",\n        \"contentType\": \"\"\n    },\n    \"cuerpo\": \"ASD ASD ASD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/noticias/{{noticiaId}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"noticias",
+								"{{noticiaId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "noticias/:id/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/noticias/{{noticiaId}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"noticias",
+								"{{noticiaId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "noticias/",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/noticias",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"noticias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "noticias/active/",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/noticias/active/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"noticias",
+								"active",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "noticias/public/ [método público]",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/noticias/public/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"noticias",
+								"public",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "noticias/:id/ [método público]",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/noticias/{{noticiaId}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"noticias",
+								"{{noticiaId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Página Inicial",
+			"item": [
+				{
+					"name": "inicial/:id/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"inicialId\", jsonData.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"slide1\": \"\",\n    \"slide2\": \"\",\n    \"slide3\": \"\",\n    \"slide4\": \"\",\n    \"video\": \"\",\n    \"email\": \"\",\n    \"admision\": \"\",\n    \"conocenos\": \"\",\n    \"plan\": \"\",\n    \"acreditacion\": \"\",\n    \"facebook\": \"\",\n    \"twitter\": \"\",\n    \"instagram\": \"\",\n    \"noticia1\": null,\n    \"noticia2\": null,\n    \"noticia3\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/inicial/{{inicialId}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inicial",
+								"{{inicialId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "inicial/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"inicialId\", jsonData.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/inicial/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inicial",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "inicial/public/ [método público]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"inicialId\", jsonData.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/inicial/public/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inicial",
+								"public",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "inicial/footer/public/ [método público]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"inicialId\", jsonData.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/inicial/footer/public/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inicial",
+								"footer",
+								"public",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Academicos",
+			"item": [
+				{
+					"name": "academicos/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"academicoId\", jsonData.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"imagen\": \"\",\n    \"nombre\": \"Prueba POSTMAN\",\n    \"correo\": \"\",\n    \"cargo\": \"\",\n    \"resumen\": \"\",\n    \"publicaciones\": \"\",\n    \"proyectos\": \"\",\n    \"publicado\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/academicos/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"academicos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "academicos/:id/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"imagen\": \"\",\n    \"nombre\": \"Nada de Nada\",\n    \"correo\": \"\",\n    \"cargo\": \"\",\n    \"resumen\": \"\",\n    \"publicaciones\": \"\",\n    \"proyectos\": \"\",\n    \"publicado\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/academicos/{{academicoId}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"academicos",
+								"{{academicoId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "academicos/:id/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/academicos/{{academicoId}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"academicos",
+								"{{academicoId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "academicos/",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/academicos/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"academicos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "academicos/public/ [método público]",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/academicos/public/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"academicos",
+								"public",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "academicos/:id/ [método público]",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/academicos/{{academicoId}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"academicos",
+								"{{academicoId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estudiantes",
+			"item": [
+				{
+					"name": "estudiantes/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"estudianteId\", jsonData.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"El Chapita\",\n    \"egreso\": \"1998\",\n    \"publicado\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/estudiantes/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"estudiantes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "estudiantes/:id/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"publicado\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/estudiantes/{{estudianteId}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"estudiantes",
+								"{{estudianteId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "estudiantes/:id/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/estudiantes/{{estudianteId}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"estudiantes",
+								"{{estudianteId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "estudiantes/",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/estudiantes/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"estudiantes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "estudiantes/public/ [método público]",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/estudiantes/public/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"estudiantes",
+								"public",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "estudiantes/:id/",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/estudiantes/{{estudianteId}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"estudiantes",
+								"{{estudianteId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tesis",
+			"item": [
+				{
+					"name": "tesis/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"tesisId\", jsonData.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"nueva nueva\",\n    \"autor\": \"alejandrita\",\n    \"publicacion\": \"2008\",\n    \"publicado\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/tesis/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"tesis",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tesis/:id/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"titulo de tes\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/tesis/{{tesisId}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"tesis",
+								"{{tesisId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tesis/:id/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/tesis/{{tesisId}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"tesis",
+								"{{tesisId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tesis/",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/tesis/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"tesis",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tesis/public/ [método público]",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/tesis/public/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"tesis",
+								"public",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tesis/:id/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"tesisId\", jsonData.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/tesis/{{tesisId}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"tesis",
+								"{{tesisId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admisión",
+			"item": [
+				{
+					"name": "admision/:id/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fechas\": \"asd\",\n    \"requisitos\": \"asd 222\",\n    \"becas\": \"asd\",\n    \"postula\": \"asd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/admision/61bab238557b520347df3939",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"admision",
+								"61bab238557b520347df3939"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admision/ [método público]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"admisionId\", jsonData.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/admision/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"admision",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Programa",
+			"item": [
+				{
+					"name": "programa/:id/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descripcion\": \"<span>El Doctorado en Qu&#237;mica fue creado con el prop&#243;sito fundamental de promover el desarrollo de la investigaci&#243;n cient&#237;fica en Qu&#237;mica a nivel nacional.</span><br><br><span>El Programa tiene por objetivo formar cient&#237;ficos de excelente nivel, capaces de generar conocimiento y adaptar el conocimiento que se necesite para el quehacer industrial y el desarrollo cient&#237;fico (b&#225;sico y aplicado) mediante estrategias innovadoras.</span><br><br><span>El Doctorado en Qu&#237;mica es un programa de car&#225;cter acad&#233;mico, que est&#225; bajo la tuici&#243;n de la Facultad de Qu&#237;mica y Biolog&#237;a. El Doctorado exige una dedicaci&#243;n completa en una jornada diurna y su duraci&#243;n es de 8 semestres acad&#233;micos.</span>\",\n    \"objetivos\": \"<div class=\\\"col-6 d-none d-lg-block border-left px-4\\\"><div class=\\\"active-content\\\"><div class=\\\"text-justify\\\"><span><b>Objetivo General</b></span></div></div></div><div class=\\\"col-6 d-none d-lg-block border-left px-4\\\"><div class=\\\"active-content\\\"><div class=\\\"text-justify\\\"><br>El Programa de Doctorado en Qu&#237;mica fue creado con el prop&#243;sito fundamental de entregar enfoques y perspectivas en la preparaci&#243;n de recursos humanos debidamente calificados, para apoyar y promover el desarrollo de la investigaci&#243;n cient&#237;fica del pa&#237;s en el &#225;mbito de la Qu&#237;mica.<br><br><span><b>Objetivo Espec&#237;fico</b></span><br><br>Formar cient&#237;ficos en el &#225;rea de la qu&#237;mica de excelente nivel con un enfoque multidisciplinario, capaces de generar y adaptar conocimiento necesario para el desarrollo cient&#237;fico b&#225;sico y aplicado del pa&#237;s.</div></div></div><div class=\\\"col-3 d-none d-lg-block\\\"><div class=\\\"amenities gray-1 flex-column align-items-center justify-content-center\\\"></div></div>\",\n    \"dirigido\": \"<span>Dirigido a quienes poseen el grado acad&#233;mico de Licenciado o Mag&#237;ster en Qu&#237;mica o en alguna ciencia af&#237;n.</span>\",\n    \"plan\": \"<span>El Plan de Estudios comprender&#225; al menos 146 cr&#233;ditos que se distribuyen en:</span><br><br><ul><li>Dos Asignaturas de Formaci&#243;n General (Qu&#237;mica Org&#225;nica, Qu&#237;mica Inorg&#225;nica y Bioqu&#237;mica) siendo la F&#237;sico Qu&#237;mica obligatoria (nivel 1 y 2)</li><li>Dos Asignaturas de T&#243;picos de Especialidad (nivel 1 y 2)</li><li>Tres asignaturas de ingl&#233;s (nivel 1, 2 y 3)</li><li>Un Seminario Bibliogr&#225;fico (Unidad de investigaci&#243;n) (nivel 2)</li><li>Proyecto de Tesis (nivel 3)</li><li>Dos Seminarios de Avance de Tesis (nivel 5 y 7)</li><li>Tesis de Grado (niveles 4 al 7)</li></ul><br><span>Las asignaturas del programa de Doctorado en Qu&#237;mica deben ser aprobadas en primera instancia. La reprobaci&#243;n de una asignatura ser&#225; causal de eliminaci&#243;n del alumno del programa de Doctorado en Qu&#237;mica.</span><br><br><span><b>T&#243;picos de la Especialidad</b></span><br><br><span>Qu&#237;mica Ecol&#243;gica, Simulaci&#243;n molecular y sus aplicaciones en sistemas org&#225;nicos, Qu&#237;mica Te&#243;rica, Qu&#237;mica de Pol&#237;meros, F&#237;sico Qu&#237;mica de Coloides, T&#243;picos de Electroqu&#237;mica, M&#233;todos Electroqu&#237;micos, Magnetismo Molecular, T&#243;picos en F&#237;sico Qu&#237;mica de Suelos, T&#243;picos en Qu&#237;mica Anal&#237;tica, T&#243;picos de Productos Naturales, T&#243;picos de Fotoqu&#237;mica, Metodolog&#237;as de Calculo Qu&#237;mico Cu&#225;ntico, Qu&#237;mica Atmosf&#233;rica, entre otros.</span><br><br><span><b>Proyecto de Tesis y Examen de Calificaci&#243;n</b></span><br><br><span>En el tercer semestre de permanencia en el Programa el alumno(a) debe entregar su Proyecto de Tesis y solicitar al Comit&#233; de Postgrado su Examen de Calificaci&#243;n. El proyecto debe estar avalado por el profesor gu&#237;a, el cual debe pertenecer al plantel regular de profesores del Programa. Este examen consistir&#225; en la exposici&#243;n p&#250;blica y defensa de su Proyecto de Tesis, ante la Comisi&#243;n de Examen de Calificaci&#243;n. En &#233;l se evaluar&#225;n tanto los conocimientos b&#225;sicos del candidato(a), principalmente en relaci&#243;n con su &#225;rea de formaci&#243;n, como la calidad del Proyecto.</span><br><br><span><b>Tesis</b></span><br><br><span>Desarrolla el proyecto de tesis rindiendo cada a&#241;o un avance ante la comisi&#243;n de seguimiento. La Tesis es un trabajo de investigaci&#243;n original, en un &#225;rea de la qu&#237;mica que el candidato debe realizar para demostrar su creatividad en la formulaci&#243;n de una hip&#243;tesis en torno a un problema qu&#237;mico de actualidad, as&#237; como en la provisi&#243;n de elementos que constituyan pruebas de su validez. El trabajo de Tesis estar&#225; restringido a las l&#237;neas de investigaci&#243;n que se desarrollan en la Facultad de Qu&#237;mica y Biolog&#237;a, y que son financiadas por proyectos de investigaci&#243;n.</span><br><br><span>El periodo m&#225;ximo de permanencia en el programa es de cinco a&#241;os.</span><br><br><span><b>Campo ocupacional</b></span><br><br><span>El Doctor en Qu&#237;mica puede desempe&#241;arse en:</span><br><br><ul><li>Todas las &#225;reas de la Industria Qu&#237;mica, tales como: alimentos, metalmec&#225;nica, acero, galvanotecnia, petr&#243;leo, papel y celulosa, pintura y recubrimientos, cemento, cuero, agroindustria, pl&#225;sticos, cosm&#233;tica, miner&#237;a, etc.</li><li>Como Acad&#233;mico e investigador en las Universidades e Institutos de Investigaci&#243;n, en Centros de Desarrollo Tecnol&#243;gico, entre otros.</li></ul><br><span><b>Graduaci&#243;n y Titulaci&#243;n</b></span><br><br><ul><li>Haber aprobado el plan de estudios completo de acuerdo a las normas establecidas.</li><li>Tener un promedio de calificaciones igual o superior a cinco en cada uno de los grupos de Asignaturas de Formaci&#243;n General y T&#243;picos de Especialidad.</li><li>Haber aprobado, con el requisito de asistencia, las actividades indicadas en el punto 19, letra c, de las normas internas del programa.</li><li>Haber aprobado la Tesis de Doctorado, Examen Privado y Examen de Grado.</li></ul>\",\n    \"acreditacion\": \"<div class=\\\"col-6 d-none d-lg-block border-left px-4\\\"><div class=\\\"active-content\\\"><div class=\\\"text-justify\\\">Por definir ...</div></div></div><div class=\\\"col-3 d-none d-lg-block\\\"><div class=\\\"amenities gray-1 flex-column align-items-center justify-content-center\\\"></div></div>\",\n    \"investigacion\": \"<span><b>Qu&#237;mica Inorg&#225;nica:</b></span><br><br><ul><li>Qu&#237;mica Inorg&#225;nica Computacional.</li><li>Magnetismo Molecular.</li><li>Espintr&#243;nica Molecular.</li><li>Interacci&#243;n de los metales con sistemas, mol&#233;culas o ambientes de origen biol&#243;gico.</li><li>Estudio metales de transici&#243;n (y otros metales) en soluci&#243;n acuosa con materiales biol&#243;gicos, principalmente bacterias de inter&#233;s m&#233;dico e industrial.</li><li>S&#237;ntesis org&#225;nica de ligandos.</li><li>S&#237;ntesis y Reactividad de Complejos Organomet&#225;licos.</li><li>Aplicaci&#243;n en Electrodos modificados.</li><li>Aplicaci&#243;n en Qu&#237;mica m&#233;dica (bioorganomet&#225;lica).</li><li>Resonancia magn&#233;tica nuclear.</li><li>Compuesto de coordinaci&#243;n de cobre.</li><li>Qu&#237;mica supramolecular.</li><li>Magnetismo Molecular y espintr&#243;nica (utilizaci&#243;n del esp&#237;n).</li><li>Estructura Electr&#243;nica de sistemas de valencia mixta.</li><li>Qu&#237;mica de coordinaci&#243;n de lant&#225;nidos (Tierras raras).</li><li>Polioxometalatos.</li><li>Nanotubos de Carbono funcionalizados.</li><li>Recubrimientos nanoestructurados autolimpiantes.</li><li>Sistemas laminares para fotodegradaci&#243;n.</li><li>S&#237;ntesis de compuestos de coordinaci&#243;n.</li><li>Qu&#237;mica supramolecular.</li><li>Reconocimiento de ADN a trav&#233;s de interacciones no covalentes con complejos met&#225;licos.</li></ul><br><span><b>Qu&#237;mica Org&#225;nica:</b></span><br><br><ul><li>Rol extracelular de ATP como mensajero intercelular.</li><li>Modulaci&#243;n alost&#233;rica de receptores, el caso de los receptores P2X.</li><li>Biolog&#237;a estructural de Receptores P2X agonismo alost&#233;rico.</li><li>Polifenoles como moduladores alost&#233;ricos de eNOS y otros mecanismos celulares.</li><li>Farmacolog&#237;a de nanopart&#237;culas y nanociencia.</li><li>Qu&#237;mica Computacional.</li><li>Qu&#237;mica M&#233;dica.</li><li>Preparaci&#243;n y caracterizaci&#243;n de materiales nanocompositos en base a pol&#237;meros con aplicaci&#243;n en campo m&#233;dico y envases de alimentos.</li><li>Preparaci&#243;n de andamios a partir de pol&#237;meros biodegradables para su uso en bioingenier&#237;a de tejidos.</li><li>Materiales de Construcci&#243;n a partir de pol&#237;meros reciclados.</li><li>Fisiolog&#237;a Vegetal.</li><li>Biotecnolog&#237;a Vegetal.</li><li>Mecanismo de control del hongo fitopat&#243;geno Botrytis cinerea utilizando extractos, compuestos naturales o compuestos hemisint&#233;ticos.</li><li>S&#237;ntesis de compuestos azaheteroc&#237;clicos.</li><li>Reacciones de acoplamiento cruzado catalizadas por Pd.</li><li>S&#237;ntesis y caracterizaci&#243;n fotof&#237;sica de tintes org&#225;nicos.</li><li>Estudios computacionales de mecanismos de reacci&#243;n y propiedades espectrales de compuestos org&#225;nicos.</li><li>Qu&#237;mica de Productos Naturales y evaluaci&#243;n de sus actividades inmunoestimulantes y antimicrobianas contra pat&#243;genos que atacan salmones.</li><li>Biopolimeros y Bioproductos.</li><li>Qu&#237;mica de Recursos Naturales.</li><li>Cat&#225;lisis Homog&#233;nea.</li><li>L&#237;quidos i&#243;nicos.</li><li>Qu&#237;mica verde.</li><li>Revalorizaci&#243;n de residuos industriales mediante biocat&#225;lisis.</li><li>S&#237;ntesis de prebi&#243;ticos derivados de lactosa.</li><li>Inmovilizaci&#243;n de enzimas.</li><li>S&#237;ntesis enzim&#225;tica de tensoactivos.</li><li>Modelaci&#243;n y simulaci&#243;n de procesos enzim&#225;ticos.</li></ul><br><span><b>Qu&#237;mica Anal&#237;tica:</b></span><br><br><ul><li>S&#237;ntesis de Nanopart&#237;culas.</li><li>Qu&#237;mica de Superficies.</li><li>Medioambiente.</li><li>Remoci&#243;n de contaminantes en sistemas acuosos.</li><li>Microbiolog&#237;a b&#225;sica y aplicada.</li><li>Toxicidad y resistencia bacteriana a metal(oid)es.</li><li>Bios&#237;ntesis de nanoestructura utilizando flavoprote&#237;nas reductoras de metal(oid)es.</li><li>Identificaci&#243;n y producci&#243;n de enzimas de extrem&#243;filos.</li><li>Biotecnolog&#237;a de enzimas.</li><li>Smog fotoqu&#237;mico.</li><li>Ozono Troposf&#233;rico.</li><li>Qu&#237;mica de las aguas de roc&#237;os en zonas urbanas y niveles atmosf&#233;ricos de compuestos fen&#243;licos.</li><li>Estudio de las emisiones provenientes de la quema de biomasa y su oxidabilidad..</li><li>Estudio de Trazadores de la quema de madera.</li><li>Tratamiento de Aguas.</li><li>Electroan&#225;lisis.</li><li>Qu&#237;mica Ambiental.</li><li>Cromatograf&#237;a.</li><li>Tratamiento de muestras.</li><li>S&#237;ntesis y caracterizaci&#243;n de pol&#237;meros para la remoci&#243;n de contaminantes.</li><li>Tecnolog&#237;a de membranas para el tratamiento de agua.</li><li>Nanomateriales para el monitoreo y tratamiento de contaminantes.</li><li>Materiales derivados de biomasa para la generaci&#243;n de bionanocompositos.</li><li>F&#237;sico qu&#237;mica de suelos y medio ambiente.</li><li>Ciencias del suelo.</li><li>F&#237;sico qu&#237;mica de suelos y medio ambiente.</li><li>Detecci&#243;n de metales pesados a nivel de trazas y ultratrazas en muestras ambientales, empleando electrodos qu&#237;micamente modificados (EQM).</li><li>Evoluci&#243;n de la reacci&#243;n de hidr&#243;geno/ox&#237;geno.</li><li>Reacci&#243;n de reducci&#243;n del ox&#237;geno.</li><li>S&#237;ntesis y modelaci&#243;n de la reducci&#243;n del di&#243;xido de carbono.</li></ul><br><span><b>Fisicoqu&#237;mica:</b></span><br><br><ul><li>Qu&#237;mica de Radicales Libres en medios microheterog&#233;neos.</li><li>Interacci&#243;n de nanopart&#237;culas con radicales libres.</li><li>Fotoqu&#237;mica de sondas solvatofluorcr&#243;micas.</li><li>Dise&#241;o y estudio de sondas fluorescentes.</li><li>Mecanismos de oxidaci&#243;n de prote&#237;nas y amino&#225;cidos.</li><li>Radicales libres y antioxidantes.</li><li>Especies electr&#243;nicamente excitadas y radicales libres fotoinducidos.</li><li>Mecanismos de transferencia de carga y Transporte de carga.</li><li>Descriptores de reactividad DFT global y local.</li><li>Propiedades de &#243;ptica lineal y no lineal.</li><li>Aromaticidad y densidades de corriente inducidas magn&#233;ticamente.</li><li>Propiedades derivadas de la teor&#237;a cu&#225;ntica de &#225;tomos en mol&#233;culas.</li><li>F&#237;sico &#8211; Qu&#237;mica de Superficies y Sistemas a Nanoescala.</li><li>Aplicaciones electroqu&#237;micas.</li><li>Electrocat&#225;lisis y fotoelectrocat&#225;lisis.</li><li>Degradaci&#243;n de Compuestos.</li><li>Contaminantes, clorofenoles antibi&#243;ticos.</li><li>Electrodos Modificados.</li><li>Celdas solares.</li><li>Di&#243;xido de titanio.</li><li>Degradaci&#243;n de compuestos org&#225;nicos fotolizados usando irradiaci&#243;n UV-Vis en suspensiones semiconductoras.</li><li>Comportamiento Cin&#233;tico y Fotoqu&#237;mico de compuestos org&#225;nicos en sistemas homog&#233;neos y heterog&#233;neos.</li><li>Capacidad Antioxidante y Radicales Libres.</li><li>Electr&#243;nica Molecular.</li><li>Electrocat&#225;lisis.</li></ul><br><span><b>Electroqu&#237;mica:</b></span><br><br><ul><li>Electrocat&#225;lisis.</li><li>Electroan&#225;lisis.</li><li>Electroqu&#237;mica de Vino y Polifenoles.</li><li>L&#237;quidos I&#243;nicos.</li><li>Bater&#237;as de Li-aire.</li><li>Qu&#237;mica verde: electroqu&#237;mica.</li><li>Anodizado de Aluminio.</li><li>Recubrimientos anticorrosivos.</li><li>Biocorrosi&#243;n.</li><li>Comportamiento electroqu&#237;mico de metales ActivoPasivos.</li><li>Fisicoqu&#237;mica de superficies, electrocatalisis, sensores electroqu&#237;micos, nanotecnolog&#237;a.</li><li>Electroqu&#237;mica.</li><li>Desarrollo de materiales de electrodos para la conversi&#243;n de energ&#237;a y para sensores electroqu&#237;micos.</li><li>Nuevos materiales para bater&#237;as de litio.</li><li>Electrodos con actividad para la degradaci&#243;n de especies org&#225;nicas contaminantes en aguas.</li><li>Regulaci&#243;n de la actividad electrocatal&#237;tica en la electrooxidaci&#243;n de alcoholes.</li></ul>\",\n    \"correo\": \"postgrados.fqb@usach.cl\",\n    \"telefono\": \"227180793\",\n    \"url\": \"https://ng-usach-2021.netlify.app/programa/investigacion\",\n    \"jornada\": \"Diurna\",\n    \"modalidad\": \"Prosecución\",\n    \"caracter\": \"Profesional\",\n    \"dedicacion\": \"Completa X2\",\n    \"ahno\": \"2021\",\n    \"postulaciones\": \"22-11-2020 AL 22-12-2020\",\n    \"clases\": \"22-11-2020 AL 22-12-2020\",\n    \"valor\": \"$3.000.000\",\n    \"subvalor\": \"*60.000\",\n    \"pago\": \"Efectivo, cheques, tarjetas de crédito\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/programa/{{programaId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"programa",
+								"{{programaId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "programa/ [método público]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"programaId\", jsonData.id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/programa/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"programa",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "auth/register/ [no habilitado]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"authId\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"authNombre\", jsonData.nombre);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"hfuentes\",\n    \"password\": \"fuen1674\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/auth/register/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth/sing_in/ [método público]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"access_token\", jsonData.token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"hfuentes\",\n    \"password\": \"fuen1674\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/auth/sing_in/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"sing_in",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth/profile/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"hfuentes\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/auth/profile/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "status/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/status",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
