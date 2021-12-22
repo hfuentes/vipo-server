@@ -4,7 +4,7 @@ const Tesis = db.tesis;
 exports.create = (req, res) => {
     if (!req.body.titulo) return res.status(400).send({ message: 'Título no puede estar vacío.' });
     const tesis = new Tesis({
-        titulo: req.body.nombre,
+        titulo: req.body.titulo,
         autor: req.body.autor,
         publicacion: req.body.publicacion,
         publicado: req.body.publicado ? true : false
@@ -18,7 +18,7 @@ exports.create = (req, res) => {
 
 exports.findAll = (_, res) => {
     Tesis.find()
-        .sort({ publicacion: -1, publicado: 1 })
+        .sort({ publicado: -1, publicacion: -1 })
         .then(data => {
             res.send(data);
         }).catch(err => {

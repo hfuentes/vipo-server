@@ -17,7 +17,7 @@ exports.create = (req, res) => {
 
 exports.findAll = (_, res) => {
     Estudiante.find()
-        .sort({ egreso: -1, publicado: 1 })
+        .sort({ publicado: -1, egreso: -1 })
         .then(data => {
             res.send(data);
         }).catch(err => {

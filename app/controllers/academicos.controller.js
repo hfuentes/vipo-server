@@ -22,7 +22,7 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
     Academico.find(req, { imagen: 0 })
-        .sort({ updatedAt: -1, publicado: 1 })
+        .sort({ publicado: -1, updatedAt: -1 })
         .then(data => {
             res.send(data);
         }).catch(err => {
