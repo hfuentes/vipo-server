@@ -19,6 +19,9 @@ exports.signIn = (req, res) => {
 };
 
 exports.register = (req, res) => {
+    if (jwtConfig.register !== req.body.secret) {
+        return res.status(500).send({ message: 'Ha ocurrido un error.' });
+    }
     var usuario = new Usuario({
         nombre: req.body.nombre
     });
