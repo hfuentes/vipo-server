@@ -15,6 +15,8 @@ module.exports = mongoose => {
             facebook: String,
             twitter: String,
             instagram: String,
+            youtube: String,
+            linkedin: String,
             noticia1: { type: objectId, ref: 'noticia' },
             noticia2: { type: objectId, ref: 'noticia' },
             noticia3: { type: objectId, ref: 'noticia' }

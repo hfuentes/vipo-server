@@ -43,6 +43,8 @@ exports.get = (_, res) => {
                 facebook: '',
                 twitter: '',
                 instagram: '',
+                youtube: '',
+                linkedin: '',
                 noticia1: null,
                 noticia2: null,
                 noticia3: null
@@ -90,7 +92,7 @@ exports.publicGet = (_, res) => {
 exports.publicFooterGet = (_, res) => {
     return Inicial
         .find()
-        .select('facebook twitter instagram')
+        .select('facebook twitter instagram youtube linkedin')
         .sort({ createdAt: -1 })
         .limit(1)
         .then(data => {
