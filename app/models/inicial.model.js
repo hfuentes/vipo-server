@@ -12,6 +12,7 @@ module.exports = mongoose => {
             conocenos: String,
             plan: String,
             acreditacion: String,
+            cna: String,
             facebook: String,
             twitter: String,
             instagram: String,
