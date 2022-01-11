@@ -6,6 +6,9 @@ exports.create = (req, res) => {
     const tesis = new Tesis({
         titulo: req.body.titulo,
         autor: req.body.autor,
+        profesor: req.body.profesor,
+        tutor: req.body.tutor,
+        coautor: req.body.coautor,
         publicacion: req.body.publicacion,
         publicado: req.body.publicado ? true : false
     });

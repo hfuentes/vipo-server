@@ -3,6 +3,9 @@ module.exports = mongoose => {
         {
             titulo: String,
             autor: String,
+            profesor: String,
+            tutor: String,
+            coautor: String,
             publicacion: String,
             publicado: Boolean
         },
