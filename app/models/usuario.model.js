@@ -12,7 +12,9 @@ module.exports = mongoose => {
             },
             hash_password: {
                 type: String
-            }
+            },
+            activo: Boolean,
+            esAdmin: Boolean
         },
         { timestamps: true }
     );
