@@ -29,6 +29,7 @@ require('./app/routes/academicos.routes')(app);
 require('./app/routes/estudiantes.routes')(app);
 require('./app/routes/tesis.routes')(app);
 require('./app/routes/programa.routes')(app);
+require('./app/routes/galeria.routes')(app);
 
 // run
 app.listen(PORT, () => {

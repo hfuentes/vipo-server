@@ -15,5 +15,6 @@ db.estudiante = require('./estudiante.model.js')(mongoose);
 db.tesis = require('./tesis.model.js')(mongoose);
 db.programa = require('./programa.model.js')(mongoose);
 db.usuario = require('./usuario.model.js')(mongoose);
+db.galeria = require('./galeria.model.js')(mongoose);
 
 module.exports = db;
